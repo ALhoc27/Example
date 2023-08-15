@@ -22,7 +22,7 @@ public class BinarySearch { /*бинарный поиск*/
             gues = array[mid];
 
             if (e == gues) {
-                System.out.println("\n Алгоритм 'Бинарный поиск' ");
+                System.out.println("\n Алгоритм 'Бинарный поиск' - O(log n)");
                 System.out.println("Элемент в массиве найден и находится по индесу: " + Integer.toString(mid) + " ");
                 NumberSteps(array); /*вызов функции подсчета шагов (НЕ ОБЯЗАТЕЛЬНО)*/
                 System.out.println(""); /*(НЕ ОБЯЗАТЕЛЬНО)*/

@@ -1,6 +1,12 @@
 public class BubbleSort {
+    static String msgArray = "";
 
     public static int[] bubbleSort(int[] sortArr) { /*ПУЗЫРЬКОВАЯ СОРТИРОВКА*/
+        for (int i: sortArr) {
+            msgArray = msgArray + " " + i;
+        } /*Создание строки элементов символа, для вывода*/
+        System.out.print("Алгоритм 'bubbleSort' (Пузырьковая сортировка) - O(n^n)");
+        System.out.print("\n IN array " + msgArray); /*Вывод заданного массива*/
 
         for (int i = 0; i < sortArr.length - 1; i++) {
         System.out.print("\n i= " + i + "  j= ");
@@ -13,21 +19,22 @@ public class BubbleSort {
             }
         }
     }
+        String msgArray = "";      /*Создание строки элементов символа, для вывода*/
+        for (int i: sortArr) { /*Создание строки элементов символа, для вывода*/
+            msgArray = msgArray + " " + i;
+        } /*Создание строки элементов символа, для вывода*/
+        System.out.println("\n OUT array " + msgArray);/*Вывод отсортированного массива*/
+        NumberSteps(sortArr); /*вызов метода расчета шагов*/
         return sortArr;
 }
+
+    static double NumberSteps (int[] array) { /*Функция определения шагов нахождения решения O(n^n) из массива*/
+        System.out.print("Выполненно: шагов - " + (int) Math.pow(array.length,2) + ", массив из " + array.length + " элементов, 'Cкорость выполнения - O(n^n) - квадратичное время выполнения операций'\n");
+        return  (int) Math.pow(array.length,2);
+    } /*Метод расчета шагов Алгоритмов типа (log n) из массива*/
+
     public static void main(String[] args) {
         int[] sortArr = {12, 6, 4, 1, 15, 10, 0, 4}; /*заданный массив*/
-        String msgArray = ""; /*для корректного вывода*/
-
-        for (int i: sortArr) { /*Создание строки элементов символа, для вывода*/
-            msgArray = msgArray + " " + i;
-        }
-        System.out.print("\n IN array " + msgArray + "  bubbleSort"); /*Вывод заданного массива*/
-        bubbleSort(sortArr); /*вызов*/
-        for (int i: sortArr) { /*Создание строки элементов символа, для вывода*/
-            msgArray = msgArray + " " + i;
-        }
-        System.out.print("\n OUT SORT array " + msgArray + "  bubbleSort");/*Вывод отсортированнного массива*/
-
+        bubbleSort(sortArr); /*вызов метода пузырьковой сортировки*/
     }
 }
