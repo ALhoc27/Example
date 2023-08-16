@@ -23,7 +23,7 @@ public class BinarySearch { /*бинарный поиск*/
 
             if (e == gues) {
                 System.out.println("\n Алгоритм 'Бинарный поиск' - O(log n) \nЭлемент в массиве найден и находится по индесу: " + Integer.toString(mid) + " ");
-                NumberSteps(array); /*вызов функции подсчета шагов (НЕ ОБЯЗАТЕЛЬНО)*/
+                EstimationAlgorithmComplexity.logarithmicComplexity(array); /*вызов функции подсчета шагов (НЕ ОБЯЗАТЕЛЬНО)*/
                 System.out.println(""); /*(НЕ ОБЯЗАТЕЛЬНО)*/
                 return mid;                      /* .....(array[mid] = e)..... */
             }
@@ -34,15 +34,6 @@ public class BinarySearch { /*бинарный поиск*/
         return -1;
     }
 
-    static double NumberSteps (int[] array) { /*Функция определения шагов нахождения решения O(log n) из массива*/
-        System.out.print("Выполненно: шагов - " + Math.round(Math.log10(array.length)/Math.log10(2)) + ", массив из " + array.length + " элементов, 'Cкорость выполнения - O(log n) - логарифмическое время'\n");
-        return  Math.round(Math.log10(array.length)/Math.log10(2));
-    } /*Метод расчета шагов Алгоритмов типа (log n) из массива*/
-    static double NumberSteps (int count) { /*Функция определения шагов нахождения решения O(log n) */
-        System.out.print("Выполненно: шагов - " + Math.round(Math.log10(count)/Math.log10(2)) + ", из " + count + " элементов, 'Cкорость выполнения - O(log n) - логарифмическое время'\n");
-        return  Math.round(Math.log10(count)/Math.log10(2));
-    } /*Метод расчета шагов Алгоритмов типа (log n) из кол-вол элементов*/
-
     public static void main(String[] args) {
         int[] arrayBinarySearch = {1, 5, 5, 6, 7, 90, 456, 500, 501, 4543, 4544, 4550, 4643, 6643, 7777, 56423};
         int[] arrayBinarySearch1 = new int[240];
@@ -52,8 +43,6 @@ public class BinarySearch { /*бинарный поиск*/
         binarySearch(arrayBinarySearch, e);
         binarySearch(arrayBinarySearch1, e);
         binarySearch(arrayBinarySearch2, e);
-        NumberSteps(arrayBinarySearch1);
-        NumberSteps(1222);
 
     }
 }

@@ -24,14 +24,9 @@ public class BubbleSort {
             msgArray = msgArray + " " + i;
         } /*Создание строки элементов символа, для вывода*/
         System.out.println("\n OUT array " + msgArray);/*Вывод отсортированного массива*/
-        NumberSteps(sortArr); /*вызов метода расчета шагов*/
+        EstimationAlgorithmComplexity.quadraticComplexity(sortArr); /*вызов метода расчета шагов*/
         return sortArr;
 }
-
-    static double NumberSteps (int[] array) { /*Функция определения шагов нахождения решения O(n^n) из массива*/
-        System.out.print("Выполненно: шагов - " + (int) Math.pow(array.length,2) + ", массив из " + array.length + " элементов, 'Cкорость выполнения - O(n^n) - квадратичное время выполнения операций'\n");
-        return  (int) Math.pow(array.length,2);
-    } /*Метод расчета шагов Алгоритмов типа (log n) из массива*/
 
     public static void main(String[] args) {
         int[] sortArr = {12, 6, 4, 1, 15, 10, 0, 4}; /*заданный массив*/
