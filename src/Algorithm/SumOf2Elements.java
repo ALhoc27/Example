@@ -1,3 +1,5 @@
+package Algorithm;
+
 public class SumOf2Elements {
     static int[] sumOf2Elements(int[] array, int sumOf2El) {
         System.out.println("Алгоритм поиска двух слагаемых во множестве, на входе дан массив(Отсортированный) и значение, сумма слагаемых что нужно найти!");

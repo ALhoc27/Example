@@ -1,3 +1,7 @@
+package Algorithm;
+
+import Algorithm.config.EstimationAlgorithmComplexity;
+
 public class BubbleSort {
     static String msgArray = "";
 

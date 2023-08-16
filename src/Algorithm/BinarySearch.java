@@ -1,8 +1,10 @@
-import org.w3c.dom.ls.LSOutput;
+package Algorithm;
+
+import Algorithm.config.EstimationAlgorithmComplexity;
 
 public class BinarySearch { /*бинарный поиск*/
 
-    static int binarySearch (int[] array, int e) {
+    public static int binarySearch (int[] array, int e) {
         int low = 0;
         int mid, gues;
         int high = array.length - 1;
