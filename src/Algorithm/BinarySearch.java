@@ -8,9 +8,11 @@ public class BinarySearch { /*бинарный поиск*/
         int low = 0;
         int mid, gues;
         int high = array.length - 1;
+
+        System.out.println(" Алгоритм 'Бинарный поиск' - O(log n) ");
         EstimationAlgorithmComplexity.printArrayint(array);
         if (e < array[0] || e > array[array.length-1]) { /*проверка на вхождение в диапазон множества массива (НЕ ОБЯЗАТЕЛЬНО)*/
-            System.out.println("Элемент не входит в множество \n");
+            System.out.println("\nЭлемент не входит в множество... \n");
             return -1;
         } /*проверка на вхождение в диапазон множества массива (НЕ ОБЯЗАТЕЛЬНО)*/
 
@@ -19,7 +21,7 @@ public class BinarySearch { /*бинарный поиск*/
             gues = array[mid];
 
             if (e == gues) {
-                System.out.println("\n Алгоритм 'Бинарный поиск' - O(log n) \nЭлемент в массиве найден и находится по индесу: " + Integer.toString(mid) + " ");
+                System.out.println(", поиск элемента 'e' - " + e + "\nЭлемент 'e' в массиве найден и находится по индесу: " + Integer.toString(mid) + " ");
                 EstimationAlgorithmComplexity.logarithmicComplexity(array); /*вызов функции подсчета шагов (НЕ ОБЯЗАТЕЛЬНО)*/
                 System.out.println(""); /*(НЕ ОБЯЗАТЕЛЬНО)*/
                 return mid;                      /* .....(array[mid] = e)..... */
@@ -27,8 +29,12 @@ public class BinarySearch { /*бинарный поиск*/
             else if (e < gues) high = mid - 1;   /* ..e..(mid-1)|..... */
             else low = mid + 1;                  /* .....|(mid+1).e.. */
         }
-        System.out.println("Элемент не найден! \n");
+        System.out.println("\nЭлемент не найден! \n");
         return -1;
+    }
+
+    public static void printArrayint(int[] array, int e)  {
+
     }
 
     public static void main(String[] args) {

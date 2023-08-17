@@ -6,12 +6,12 @@ public class BubbleSort {
     static String msgArray = "";
 
     public static int[] bubbleSort(int[] sortArr) { /*ПУЗЫРЬКОВАЯ СОРТИРОВКА*/
-        for (int i: sortArr) {
-            msgArray = msgArray + " " + i;
-        } /*Создание строки элементов символа, для вывода*/
+//        for (int i: sortArr) {
+//            msgArray = msgArray + " " + i;
+//        } /*Создание строки элементов символа, для вывода*/
         System.out.print("Алгоритм 'bubbleSort' (Пузырьковая сортировка) - O(n^n)");
-        System.out.print("\n IN array " + msgArray); /*Вывод заданного массива*/
-
+        System.out.print("\n IN array ");
+        EstimationAlgorithmComplexity.printArrayint(sortArr);
         for (int i = 0; i < sortArr.length - 1; i++) {
         System.out.print("\n i= " + i + "  j= ");
         for (int j = 0; j < sortArr.length - 1 - i; j++) {
