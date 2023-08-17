@@ -29,7 +29,7 @@ public class RegularExpression {
 
     private static int lengthArrayMaxElement(String[] arrayColom) {
         int maxLenght = arrayColom[0].length();
-        for (int i = 0; i < arrayColom.length - 1; i++) {
+        for (int i = 1; i <= arrayColom.length - 1; i++) {
             if (maxLenght < arrayColom[i].length()) {
                 maxLenght = arrayColom[i].length(); // - ищем максимальную длину элемента массива (maxLenght)
             }
@@ -40,14 +40,14 @@ public class RegularExpression {
         return String.join("", String.valueOf(ch).split("")).length();
     }
     private static int SumdifferenceMaxAndCurrentAndWidthColom1(String str, int maxLenghtCol, int widthColom1) {
-       return (maxLenghtCol - str.length()) + widthColom1;
+       return maxLenghtCol + widthColom1;
     }
     private static int SumdifferenceMaxAndCurrentAndWidthColom1(int ch, int maxLenghtIntI, int widthColom2) {
-        return (maxLenghtIntI - String.join("", String.valueOf(ch).split("")).length()) + widthColom2;
+        return maxLenghtIntI + widthColom2;
     }
 
     public static void main(String args[]) {
-        String[] array1 = {"12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123"};
+        String[] array1 = {"12","23","42","12","3","2","1213123","0","31123","311","434","6"};
         String[] array2 = {"12","211"};
         printTwoColumns(array1, array2, 2, 4);
 
