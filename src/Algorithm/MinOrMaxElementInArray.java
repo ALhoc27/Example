@@ -9,7 +9,7 @@ public class MinOrMaxElementInArray {
         int minIndexValue = array[0];
         for (i = 1; i < array.length; i++) if (minIndexValue > array[i]) minIndexValue = array[i];
         EstimationAlgorithmComplexity.printArrayint(array);
-        System.out.print(minIndexValue + " - (min element) ");
+        System.out.print("\n " + minIndexValue + " - (min element) ");
         EstimationAlgorithmComplexity.linearСomplexity(array);
         System.out.println("");
         return minIndexValue;
@@ -20,7 +20,7 @@ public class MinOrMaxElementInArray {
         int maxIndexValue = array[0];
         for (i = 1; i < array.length; i++) if (maxIndexValue < array[i]) maxIndexValue = array[i];
         EstimationAlgorithmComplexity.printArrayint(array);
-        System.out.print(maxIndexValue + " - (max element) ");
+        System.out.print("\n " + maxIndexValue + " - (max element) ");
         EstimationAlgorithmComplexity.linearСomplexity(array);
         System.out.println("");
         return maxIndexValue;
