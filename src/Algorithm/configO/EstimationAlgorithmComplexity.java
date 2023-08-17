@@ -47,4 +47,15 @@ public class EstimationAlgorithmComplexity {
         FactorialComplexity(array);
         ConstantComplexity(array);
     }
+
+    public static void printArrayint(int[] array) {
+        StringBuilder str = new StringBuilder();
+        if (array.length > 16) {
+            System.out.println("   ArrayIn.... array of more than 19 characters");
+        } else {
+            for (int j: array) str.append(j).append(" ");
+            System.out.println("   ArrayIn - {" + str.toString().strip() + "}");
+        }
+
+    }
 }

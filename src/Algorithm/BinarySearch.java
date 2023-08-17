@@ -8,12 +8,7 @@ public class BinarySearch { /*бинарный поиск*/
         int low = 0;
         int mid, gues;
         int high = array.length - 1;
-        if (array.length < 18) { //Вывод входящего массива
-            System.out.print("Массив: ");
-            for (int n: array) System.out.print(n + " ");
-        } else {
-            System.out.println("Массив: " + array.toString() + " более 18 элементов...");
-        } //Вывод входящего массива (НЕ ОБЯЗАТЕЛЬНО)
+        EstimationAlgorithmComplexity.printArrayint(array);
         if (e < array[0] || e > array[array.length-1]) { /*проверка на вхождение в диапазон множества массива (НЕ ОБЯЗАТЕЛЬНО)*/
             System.out.println("Элемент не входит в множество \n");
             return -1;

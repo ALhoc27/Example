@@ -8,9 +8,10 @@ public class MinOrMaxElementInArray {
         int i;
         int minIndexValue = array[0];
         for (i = 1; i < array.length; i++) if (minIndexValue > array[i]) minIndexValue = array[i];
-        printArray(array);
+        EstimationAlgorithmComplexity.printArrayint(array);
         System.out.print(minIndexValue + " - (min element) ");
         EstimationAlgorithmComplexity.linearСomplexity(array);
+        System.out.println("");
         return minIndexValue;
     }
 
@@ -18,20 +19,11 @@ public class MinOrMaxElementInArray {
         int i;
         int maxIndexValue = array[0];
         for (i = 1; i < array.length; i++) if (maxIndexValue < array[i]) maxIndexValue = array[i];
-        printArray(array);
+        EstimationAlgorithmComplexity.printArrayint(array);
         System.out.print(maxIndexValue + " - (max element) ");
         EstimationAlgorithmComplexity.linearСomplexity(array);
+        System.out.println("");
         return maxIndexValue;
-    }
-
-    public static void printArray(int[] array) {
-        StringBuilder str = new StringBuilder();
-        if (array.length > 16) {
-            System.out.println("\n   ArrayIn.... array of more than 19 characters");
-        } else {
-            for (int j: array) str.append(j).append(" ");
-            System.out.println("\n   ArrayIn - {" + str.toString().strip() + "}");
-        }
     }
 
     public static void main(String[] args) {
