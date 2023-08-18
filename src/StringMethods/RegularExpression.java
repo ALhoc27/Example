@@ -95,7 +95,6 @@ public class RegularExpression {
     private static int SumMaxAndCurrentAndwidthColom(int ch, int maxLenghtIntI, int widthColomIndex) {
         return maxLenghtIntI + widthColomIndex;
     }
-
     private static String[][] bringingArraysToOneLength(String[] ... array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i].length != lengthArraySMaxElement(array)) array[i] = addsSpacesToTheEndOfTheArray(array[i], lengthArraySMaxElement(array)-array[i].length);
