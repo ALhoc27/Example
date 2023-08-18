@@ -49,37 +49,17 @@ public class ArrayExperiment {
 
         System.out.print("\n IN ARRAY " + msgArray + "  exp1");
         exp1(sortArr);
-        /*        System.out.print("\n OUT ARRAY: ");
-                for (int i : sortArr) {
-                    System.out.print(i + " ");
-                }
-                System.out.println("\n");*/
         System.out.println("");
 
         System.out.print("\n IN ARRAY " + msgArray + "  exp2");
         exp2(sortArr);
-        /*System.out.print("\n OUT ARRAY: ");
-        for (int i : sortArr) {
-            System.out.print(i + " ");
-        }
-        System.out.println("\n");*/
         System.out.println("");
 
         System.out.print("\n IN ARRAY " + msgArray + "  exp3");
         exp3(sortArr);
-        /*System.out.print("\n OUT ARRAY: ");
-        for (int i : sortArr) {
-            System.out.print(i + " ");
-        }
-        System.out.println("\n");*/
         System.out.println("");
 
         System.out.print("\n IN ARRAY " + msgArray + "  exp4");
         exp4(sortArr);
-        /*System.out.print("\n OUT ARRAY: ");
-        for (int i : sortArr) {
-            System.out.print(i + " ");
-        }
-        System.out.println("\n");*/
     }
 }
