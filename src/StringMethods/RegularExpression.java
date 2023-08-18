@@ -1,25 +1,22 @@
 package StringMethods;
 
-import java.util.Scanner;
-import java.util.regex.Pattern;
-
-import static java.lang.Integer.parseInt;
-
 public class RegularExpression {
-    //вывод 2 столбца с задаными длинами
-    //на вход получает два массива, 1 столбец и 2 столбец, и 1 ширена столбца и 2 ширена 2 столбца
 
     public static void printTwoColumns(String[] arrayColom1, String[] arrayColom2, String[] arrayColom3, String[] arrayColom4, String[] arrayColom5, String[] arrayColom6, int widthColomIndex, int widthColom) {
-//        if (arrayColom1.length > arrayColom2.length) arrayColom2 = bringingArraysToOneLength(arrayColom1, arrayColom2);
-//        if (arrayColom2.length > arrayColom1.length) arrayColom1 = bringingArraysToOneLength(arrayColom1, arrayColom2);
-        //проверка какой массив больше, что бы вызвать и преобразовать младший массив к старшему заполнив "0"
+        var result = bringingArraysToOneLength(arrayColom1, arrayColom2, arrayColom3, arrayColom4, arrayColom5, arrayColom6);
+        arrayColom1 = result[0];
+        arrayColom2 = result[1];
+        arrayColom3 = result[2];
+        arrayColom4 = result[3];
+        arrayColom5 = result[4];
+        arrayColom6 = result[5];
 
         int maxLenghtIntI = lengthIntElement(arrayColom1.length);
-        int maxLenghtCol1 = lengthArrayMaxElement(arrayColom2);
-        int maxLenghtCol2 = lengthArrayMaxElement(arrayColom2);
-        int maxLenghtCol3 = lengthArrayMaxElement(arrayColom3);
-        int maxLenghtCol4 = lengthArrayMaxElement(arrayColom4);
-        int maxLenghtCol5 = lengthArrayMaxElement(arrayColom5);
+        int maxLenghtCol1 = lengthArrayOneMaxElement(arrayColom2);
+        int maxLenghtCol2 = lengthArrayOneMaxElement(arrayColom2);
+        int maxLenghtCol3 = lengthArrayOneMaxElement(arrayColom3);
+        int maxLenghtCol4 = lengthArrayOneMaxElement(arrayColom4);
+        int maxLenghtCol5 = lengthArrayOneMaxElement(arrayColom5);
 
         for (int i = 0; i < arrayColom1.length - 1; i++) {
             System.out.print("Array №");
@@ -27,7 +24,7 @@ public class RegularExpression {
             System.out.print(String.format(strI, i) + "= ");
             // выведется 'Array №" + i'
 
-            String strArI = "%-" + SumMaxAndCurrentAndwidthColom(arrayColom1[i], maxLenghtCol1, widthColom-3) + "s";
+            String strArI = "%-" + SumMaxAndCurrentAndwidthColom(arrayColom1[i], maxLenghtCol1, widthColom) + "s";
             System.out.print(String.format(strArI, arrayColom1[i]));
             // выведется '= + arrayColom1[i]'
 
@@ -52,14 +49,42 @@ public class RegularExpression {
         }
     }
 
-    private static int lengthArrayMaxElement(String[] arrayColom) {
+    private static int lengthArrayOneMaxElement(String[] arrayColom) {
         int maxLenght = arrayColom[0].length();
-        for (int i = 1; i <= arrayColom.length - 1; i++) {
+        for (int i = 1; i < arrayColom.length; i++) {
             if (maxLenght < arrayColom[i].length()) {
                 maxLenght = arrayColom[i].length(); // - ищем максимальную длину элемента массива (maxLenght)
             }
         }
         return maxLenght;
+    }
+    private static int lengthArraySMaxElement(String[] ... array) {
+        int maxArraysLength = array[0].length;
+        for (int i = 0; i < array.length; i++) {
+            if (maxArraysLength < array[i].length) {
+                maxArraysLength = array[i].length;
+            }
+        }
+        return maxArraysLength;
+    }
+    private static String[] addsSpacesToTheEndOfTheArray(String[] array, int count) {
+        String[] tempArray = new String[count];
+        for (int i = 0; i < tempArray.length; i++) {
+            tempArray[i] = "";
+        }
+       return combiningTwoMasivsIntoOne(array, tempArray);
+    }
+    private static String[] combiningTwoMasivsIntoOne(String[] array1, String[] array2) {
+        String[] tempArray = new String[array1.length + array2.length];
+        int count = 0;
+        for (int i = 0; i < array1.length; i++) {
+            tempArray[i] = array1[i];
+            count++;
+        }
+        for (int i = 0; i < array2.length; i++) {
+            tempArray[count++] = array2[i];
+        }
+        return tempArray;
     }
     private static int lengthIntElement(int ch) {
         return String.join("", String.valueOf(ch).split("")).length();
@@ -70,52 +95,23 @@ public class RegularExpression {
     private static int SumMaxAndCurrentAndwidthColom(int ch, int maxLenghtIntI, int widthColomIndex) {
         return maxLenghtIntI + widthColomIndex;
     }
-    public static String[][] bringingArraysToOneLength(String[] array1, String[] array2, String[] array3, String[] array4, String[] array5, String[] array6) {
-        String[][] tempWrapperArray = {array1, array2, array3, array4, array5, array6};
-        int maxArrayLength = tempWrapperArray[0].length;
-        int maxArrayIndex = 0;
-        String[] differenceArray = new String[0];
-        String[][] arrayAll;
-        for (int i = 0; i < tempWrapperArray.length; i++) {
-                if (maxArrayLength < tempWrapperArray[i].length) {
-                    maxArrayLength = tempWrapperArray[i].length;
-                    maxArrayIndex = i;
-                }
-            } // самый длинный элемент массива tempWrapperArray
 
-        for (int i = 0; i < tempWrapperArray.length; i++) {
-            if (maxArrayLength > tempWrapperArray[i].length) {
-                int differenceArrayLength = maxArrayLength - tempWrapperArray[i].length;
-                differenceArray = new String[differenceArrayLength];
-                for (int j = 0; j < differenceArray.length; j++) {
-                    differenceArray[j] = "";
-                } //иницализировали и заполнили масив для следующего обьединения
-
-                String[] arrayColom = new String[tempWrapperArray[i].length + differenceArray.length]; //ВЫВОДЯЩИЙ МАСИВ
-                int count = 0;// инициализировал счетчик
-
-                for (int p = 0; p < tempWrapperArray[i].length; p++) {
-                    arrayColom[p] = tempWrapperArray[i][p];
-                    count++;
-                }
-                for (int y = 0; y < differenceArray.length; y++) {
-                    differenceArray[count++] = differenceArray[y];
-                }
-                    tempWrapperArray[i] = arrayColom;
-                }
-
-                //System.out.println("Возвращаем приведенный к длине массива arrayColom1, массив arrayColom2, длинною " + arrayColom2.length);
-            }
-        return tempWrapperArray;
+    private static String[][] bringingArraysToOneLength(String[] ... array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length != lengthArraySMaxElement(array)) array[i] = addsSpacesToTheEndOfTheArray(array[i], lengthArraySMaxElement(array)-array[i].length);
         }
+        return array;
+    }
+
 
     public static void main(String args[]) {
-        String[] array1 = {"12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6"};
-        String[] array2 = {"32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124","102","5234","85","23","2321","1422","1745","32523","3241414141","3285423","124"};
-        String[] array3 = {"11","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6"};
-        String[] array4 = {"11","21","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6"};
-        String[] array5 = {"1","21","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6"};
-        String[] array6 = {"1","21","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","414","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6","12","23","42","12","3","2","1213123","0","31123","311","434","6"};
+        String[] array1 = {"3","2","1213123","0","31123","311","434","6","0","31123","311","434","6","0"};
+        String[] array2 = {"5","2","1213123","0","31123","311","434","6"};
+        String[] array3 = {"5","2","1213123","0","31123","311","434","6"};
+        String[] array4 = {"0","2","1213123","0","31123","311","434","6"};
+        String[] array5 = {"1","2","1213123","0","31123","311","434","6","1","4","233232","22324424324324234234","858757","875578685","888"};
+        String[] array6 = {"2","2","1213123","0","31123","311","434","6"};
+
         printTwoColumns(array1, array2, array3, array4, array5, array6, 1, 3);
 
     }
