@@ -1,6 +1,6 @@
 package Algorithm;
 
-import Algorithm.configO.EstimationAlgorithmComplexity;
+import Algorithm.configAlgorithm.EstimationAlgorithmComplexity;
 
 public class BinarySearch { /*бинарный поиск*/
 
