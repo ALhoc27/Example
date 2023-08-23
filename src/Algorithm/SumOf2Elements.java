@@ -12,7 +12,7 @@ public class SumOf2Elements {
         int i = 0;
         int j = array.length - 1;
 
-        while (j > i) {
+        while (i < j) {
             if (array[i] + array[j] == sumOf2El) return new int[]{array[i], array[j]};
             else if (array[i] < sumOf2El - array[j]) i++;
             else j--;
