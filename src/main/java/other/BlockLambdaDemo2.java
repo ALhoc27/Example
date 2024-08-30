@@ -20,6 +20,6 @@ public class BlockLambdaDemo2 {
             }
             return result;
         };
-        System.out.println(integerSomeFuncFactorial.func(3));
+        System.out.println(integerSomeFuncFactorial.func(4));
     }
 }
