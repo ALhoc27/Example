@@ -22,5 +22,4 @@ public class BlockLambdaDemo2 {
         };
         System.out.println(integerSomeFuncFactorial.func(3));
     }
-
 }
